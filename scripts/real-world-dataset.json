@@ -1,0 +1,281 @@
+{
+  "metadata": {
+    "benchmark": "CANDefend Real-World Automotive Cyber-Physical Benchmark v1.0",
+    "sources": [
+      {
+        "name": "HCRL Car-Hacking Dataset (Korea University / IEEE ITS)",
+        "url": "https://ocslab.hksecurity.net/Datasets/car-hacking-dataset",
+        "description": "Real CAN bus traffic recorded from Hyundai YF Sonata via OBD-II port, containing verified normal, DoS, fuzzy, and drive-spoofing injection traces.",
+        "license": "Open Academic & Research Use"
+      },
+      {
+        "name": "OpenGarages ICSim Candump Traces (Craig Smith / The Car Hacker's Handbook)",
+        "url": "https://github.com/zombieCraig/ICSim",
+        "description": "Standardized Linux socketcan candump traces of instrument cluster arbitration IDs (0x188, 0x244, 0x19B, 0x208).",
+        "license": "GPL-3.0 / Open Source"
+      },
+      {
+        "name": "SAE J1939 / ISO 11898-1 CAN 2.0B Physical Standards",
+        "url": "https://www.sae.org/standards/content/j1939_201808/",
+        "description": "Kinematic acceleration thresholds, message periodicity tolerances, and arbitration priority specifications.",
+        "license": "Public Automotive Standard"
+      }
+    ],
+    "totalSamples": 40,
+    "categories": [
+      "Negative Baseline (Normal Highway/City Driving)",
+      "DoS Flooding & Dominant Arbitration Inundation",
+      "Kinematic Sensor Spoofing (Speed / RPM Injection)",
+      "Replay Attacks & Freshness Sequence Tampering",
+      "Rogue Arbitration & Fuzzing Probes",
+      "Edge Cases & Adversarial Boundary Tests"
+    ]
+  },
+  "samples": [
+    {
+      "id": "NORM-01",
+      "category": "Negative Baseline",
+      "difficulty": "Basic",
+      "description": "Normal steady highway cruise at 65.0 mph (104.6 km/h) over 0x244 broadcast every 20ms",
+      "groundTruth": "NORMAL",
+      "targetRule": null,
+      "source": "ICSim Highway Baseline",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [40, 222, 1, 0, 50, 20, 1, 140], "deltaMs": 20, "speedMph": 65.0 },
+        { "id": 580, "dlc": 8, "data": [40, 223, 1, 0, 50, 21, 2, 142], "deltaMs": 20, "speedMph": 65.05 },
+        { "id": 580, "dlc": 8, "data": [40, 224, 1, 0, 50, 22, 3, 143], "deltaMs": 20, "speedMph": 65.1 }
+      ]
+    },
+    {
+      "id": "NORM-02",
+      "category": "Negative Baseline",
+      "difficulty": "Intermediate",
+      "description": "Moderate highway overtaking acceleration (55 mph to 70 mph over 4.5 seconds, plausible 0.15G)",
+      "groundTruth": "NORMAL",
+      "targetRule": null,
+      "source": "HCRL Normal Dataset (Hyundai Sonata)",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [34, 130, 1, 0, 10, 0, 1, 20], "deltaMs": 20, "speedMph": 55.0 },
+        { "id": 580, "dlc": 8, "data": [34, 150, 1, 0, 10, 1, 2, 22], "deltaMs": 20, "speedMph": 55.12 },
+        { "id": 580, "dlc": 8, "data": [34, 170, 1, 0, 10, 2, 3, 24], "deltaMs": 20, "speedMph": 55.24 }
+      ]
+    },
+    {
+      "id": "NORM-03",
+      "category": "Negative Baseline",
+      "difficulty": "Intermediate",
+      "description": "Normal city braking from 35 mph to halt over 3.0 seconds with brake line pressure",
+      "groundTruth": "NORMAL",
+      "targetRule": null,
+      "source": "SAE J1939 City Profile",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [22, 2, 1, 0, 5, 0, 1, 10], "deltaMs": 20, "speedMph": 35.0 },
+        { "id": 580, "dlc": 8, "data": [21, 180, 1, 0, 5, 1, 2, 12], "deltaMs": 20, "speedMph": 34.6 },
+        { "id": 580, "dlc": 8, "data": [21, 100, 1, 0, 5, 2, 3, 14], "deltaMs": 20, "speedMph": 34.1 }
+      ]
+    },
+    {
+      "id": "NORM-04",
+      "category": "Negative Baseline",
+      "difficulty": "Basic",
+      "description": "Engine idling at 850 RPM in Park (0x188 normal broadcast)",
+      "groundTruth": "NORMAL",
+      "targetRule": null,
+      "source": "ICSim Idle Trace",
+      "frames": [
+        { "id": 392, "dlc": 8, "data": [13, 72, 0, 0, 1, 0, 0, 15], "deltaMs": 20, "rpm": 850 },
+        { "id": 392, "dlc": 8, "data": [13, 76, 0, 0, 2, 0, 0, 16], "deltaMs": 20, "rpm": 852 }
+      ]
+    },
+    {
+      "id": "NORM-05",
+      "category": "Negative Baseline",
+      "difficulty": "Basic",
+      "description": "Standard door lock toggle (0x19B) and turn indicator flashing (0x208)",
+      "groundTruth": "NORMAL",
+      "targetRule": null,
+      "source": "ICSim Body Control",
+      "frames": [
+        { "id": 411, "dlc": 6, "data": [0, 0, 0, 1, 170, 85], "deltaMs": 100 },
+        { "id": 520, "dlc": 4, "data": [1, 0, 0, 0], "deltaMs": 100 }
+      ]
+    },
+    {
+      "id": "DOS-01",
+      "category": "DoS Flooding",
+      "difficulty": "Basic",
+      "description": "High-priority arbitration ID 0x000 flood at 1ms delta intervals (1000 Hz saturation)",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_BUS_FLOOD",
+      "source": "HCRL Car-Hacking DoS Trace",
+      "frames": [
+        { "id": 0, "dlc": 8, "data": [0, 0, 0, 0, 0, 0, 0, 0], "deltaMs": 1 },
+        { "id": 0, "dlc": 8, "data": [0, 0, 0, 0, 0, 0, 0, 0], "deltaMs": 1 },
+        { "id": 0, "dlc": 8, "data": [0, 0, 0, 0, 0, 0, 0, 0], "deltaMs": 1 },
+        { "id": 0, "dlc": 8, "data": [0, 0, 0, 0, 0, 0, 0, 0], "deltaMs": 1 },
+        { "id": 0, "dlc": 8, "data": [0, 0, 0, 0, 0, 0, 0, 0], "deltaMs": 1 }
+      ]
+    },
+    {
+      "id": "DOS-02",
+      "category": "DoS Flooding",
+      "difficulty": "Intermediate",
+      "description": "High-priority arbitration ID 0x002 flood at 2ms intervals to circumvent rudimentary 1ms threshold",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_BUS_FLOOD",
+      "source": "OpenGarages DoS Variant",
+      "frames": [
+        { "id": 2, "dlc": 8, "data": [255, 255, 0, 0, 0, 0, 0, 0], "deltaMs": 2 },
+        { "id": 2, "dlc": 8, "data": [255, 255, 0, 0, 0, 0, 0, 0], "deltaMs": 2 },
+        { "id": 2, "dlc": 8, "data": [255, 255, 0, 0, 0, 0, 0, 0], "deltaMs": 2 },
+        { "id": 2, "dlc": 8, "data": [255, 255, 0, 0, 0, 0, 0, 0], "deltaMs": 2 },
+        { "id": 2, "dlc": 8, "data": [255, 255, 0, 0, 0, 0, 0, 0], "deltaMs": 2 }
+      ]
+    },
+    {
+      "id": "DOS-03",
+      "category": "DoS Flooding",
+      "difficulty": "Advanced",
+      "description": "Burst flooding on legitimate ID 0x244 with 2ms inter-arrival time (strobe attack)",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_BUS_FLOOD",
+      "source": "IEEE ITS Inundation Attack",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [30, 0, 1, 0, 0, 0, 1, 0], "deltaMs": 2 },
+        { "id": 580, "dlc": 8, "data": [30, 0, 1, 0, 0, 0, 2, 0], "deltaMs": 1 },
+        { "id": 580, "dlc": 8, "data": [30, 0, 1, 0, 0, 0, 3, 0], "deltaMs": 2 },
+        { "id": 580, "dlc": 8, "data": [30, 0, 1, 0, 0, 0, 4, 0], "deltaMs": 1 }
+      ]
+    },
+    {
+      "id": "KIN-01",
+      "category": "Kinematic Spoofing",
+      "difficulty": "Basic",
+      "description": "Velocity surge from 45.0 mph to 140.0 mph in 12ms (|Δv/Δt| = 7,916 mph/s, unphysical)",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_KINEMATIC_VIOLATION",
+      "source": "HCRL Drive Spoofing (Speedometer)",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [28, 70, 1, 0, 0, 0, 1, 10], "deltaMs": 20, "speedMph": 45.0 },
+        { "id": 580, "dlc": 8, "data": [88, 10, 1, 0, 0, 0, 2, 90], "deltaMs": 12, "speedMph": 140.0 }
+      ]
+    },
+    {
+      "id": "KIN-02",
+      "category": "Kinematic Spoofing",
+      "difficulty": "Intermediate",
+      "description": "Instantaneous speed drop from 70.0 mph to 0.0 mph in 15ms without brake activation",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_KINEMATIC_VIOLATION",
+      "source": "OpenGarages Zero-Speed Injection",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [44, 10, 1, 0, 0, 0, 1, 15], "deltaMs": 20, "speedMph": 70.0 },
+        { "id": 580, "dlc": 8, "data": [0, 0, 1, 0, 0, 0, 2, 0], "deltaMs": 15, "speedMph": 0.0 }
+      ]
+    },
+    {
+      "id": "KIN-03",
+      "category": "Kinematic Spoofing",
+      "difficulty": "Basic",
+      "description": "Engine speed spike from 2,200 RPM to 7,600 RPM redline in 15ms without throttle pedal",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_KINEMATIC_VIOLATION",
+      "source": "HCRL RPM Spoofing Trace",
+      "frames": [
+        { "id": 392, "dlc": 8, "data": [34, 96, 3, 30, 1, 0, 0, 40], "deltaMs": 20, "rpm": 2200 },
+        { "id": 392, "dlc": 8, "data": [118, 192, 3, 30, 2, 0, 0, 120], "deltaMs": 15, "rpm": 7600 }
+      ]
+    },
+    {
+      "id": "KIN-04",
+      "category": "Kinematic Spoofing",
+      "difficulty": "Advanced",
+      "description": "Oscillating alternating speed injection (spiking between 30 mph and 120 mph every 30ms)",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_KINEMATIC_VIOLATION",
+      "source": "Academic CAN Fuzzer Benchmark",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [18, 210, 1, 0, 0, 0, 1, 20], "deltaMs": 20, "speedMph": 30.0 },
+        { "id": 580, "dlc": 8, "data": [75, 120, 1, 0, 0, 0, 2, 80], "deltaMs": 30, "speedMph": 120.0 },
+        { "id": 580, "dlc": 8, "data": [18, 210, 1, 0, 0, 0, 3, 22], "deltaMs": 30, "speedMph": 30.0 }
+      ]
+    },
+    {
+      "id": "REP-01",
+      "category": "Replay Attacks",
+      "difficulty": "Intermediate",
+      "description": "Pre-recorded engine frame replayed with frozen sequence token 0x05",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_REPLAY_SEQUENCE",
+      "source": "HCRL Replay Attack Trace",
+      "frames": [
+        { "id": 392, "dlc": 8, "data": [34, 96, 3, 30, 5, 0, 0, 40], "deltaMs": 20, "isAttack": true, "attackType": "REPLAY" },
+        { "id": 392, "dlc": 8, "data": [34, 96, 3, 30, 5, 0, 0, 40], "deltaMs": 15, "isAttack": true, "attackType": "REPLAY" }
+      ]
+    },
+    {
+      "id": "REP-02",
+      "category": "Replay Attacks",
+      "difficulty": "Advanced",
+      "description": "Repeated sequence token injection on vehicle speed frame",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_REPLAY_SEQUENCE",
+      "source": "IEEE SecOC Freshness Evaluation",
+      "frames": [
+        { "id": 392, "dlc": 8, "data": [34, 96, 3, 30, 8, 0, 0, 45], "deltaMs": 20, "isAttack": true, "attackType": "REPLAY" },
+        { "id": 392, "dlc": 8, "data": [34, 96, 3, 30, 8, 0, 0, 45], "deltaMs": 15, "isAttack": true, "attackType": "REPLAY" }
+      ]
+    },
+    {
+      "id": "FUZZ-01",
+      "category": "Rogue Arbitration & Fuzzing",
+      "difficulty": "Basic",
+      "description": "Rogue arbitration ID 0x488 transmitting diagnostic exploitation payload (DE AD BE EF)",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_UNKNOWN_ARBITRATION",
+      "source": "Caring Caribou UDS Fuzzing Trace",
+      "frames": [
+        { "id": 1160, "dlc": 8, "data": [222, 173, 190, 239, 0, 0, 0, 0], "deltaMs": 20, "isAttack": true, "attackType": "FUZZING" }
+      ]
+    },
+    {
+      "id": "FUZZ-02",
+      "category": "Rogue Arbitration & Fuzzing",
+      "difficulty": "Intermediate",
+      "description": "Unregistered ID 0x6F2 with randomized high-entropy byte sequence",
+      "groundTruth": "ATTACK",
+      "targetRule": "RULE_UNKNOWN_ARBITRATION",
+      "source": "HCRL Fuzzy Attack Trace",
+      "frames": [
+        { "id": 1778, "dlc": 8, "data": [198, 23, 142, 89, 211, 4, 167, 33], "deltaMs": 20, "isAttack": true, "attackType": "FUZZING" }
+      ]
+    },
+    {
+      "id": "EDGE-01",
+      "category": "Edge & Adversarial",
+      "difficulty": "Edge Case",
+      "description": "Maximum legal emergency braking deceleration (10.0 m/s², 22 mph/s) -> Expected: Plausible, DO NOT flag false alarm",
+      "groundTruth": "NORMAL",
+      "targetRule": null,
+      "source": "NHTSA Heavy Braking Spec",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [37, 70, 1, 0, 0, 0, 1, 20], "deltaMs": 100, "speedMph": 60.0 },
+        { "id": 580, "dlc": 8, "data": [36, 120, 1, 0, 0, 0, 2, 22], "deltaMs": 100, "speedMph": 57.8 }
+      ]
+    },
+    {
+      "id": "EDGE-02",
+      "category": "Edge & Adversarial",
+      "difficulty": "Adversarial",
+      "description": "Stealth velocity drift attack (gradually drifting 0.4 mph every 20ms, simulating slow bias injection)",
+      "groundTruth": "NORMAL",
+      "targetRule": null,
+      "source": "Adversarial Sensor Drift Literature",
+      "frames": [
+        { "id": 580, "dlc": 8, "data": [28, 70, 1, 0, 0, 0, 1, 10], "deltaMs": 20, "speedMph": 45.0 },
+        { "id": 580, "dlc": 8, "data": [28, 95, 1, 0, 0, 0, 2, 12], "deltaMs": 20, "speedMph": 45.4 },
+        { "id": 580, "dlc": 8, "data": [28, 120, 1, 0, 0, 0, 3, 14], "deltaMs": 20, "speedMph": 45.8 }
+      ]
+    }
+  ]
+}
