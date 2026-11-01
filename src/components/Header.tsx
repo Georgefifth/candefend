@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({
   activeLabTitle,
 }) => {
   return (
-    <header className="bg-carbon-950 border-b border-carbon-700/80 px-4 py-2.5 sticky top-0 z-40 select-none">
+    <header className="bg-carbon-950 border-b border-carbon-700/80 px-4 py-2.5 z-40 select-none">
       <div className="max-w-[1720px] mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2.5">
         {/* Brand & VBUS Telemetry Status */}
         <div className="flex items-center justify-between md:justify-start gap-4">

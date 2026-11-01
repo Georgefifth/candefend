@@ -16,14 +16,14 @@ export const BusMonitor: React.FC<BusMonitorProps> = ({ frames, onClear }) => {
 
   // Filter frames
   const displayFrames = (isPaused ? frames : frames.slice(0, 100)).filter((f) => {
-    const idHex = formatCanIdHex(f.id).toUpperCase();
+    const idHex = formatCanIdHex(f.id).toLowerCase();
     if (filterId === 'ATTACKS_ONLY' && !f.isAttack) return false;
-    if (filterId !== 'ALL' && filterId !== 'ATTACKS_ONLY' && idHex !== filterId) return false;
+    if (filterId !== 'ALL' && filterId !== 'ATTACKS_ONLY' && idHex !== filterId.toLowerCase()) return false;
 
     if (searchQuery.trim()) {
-      const q = searchQuery.trim().toUpperCase();
-      const payloadStr = Array.from(f.data).map(formatHexByte).join(' ');
-      return idHex.includes(q) || payloadStr.includes(q) || f.sender.includes(q);
+      const q = searchQuery.trim().toLowerCase();
+      const payloadStr = Array.from(f.data).map(formatHexByte).join(' ').toLowerCase();
+      return idHex.includes(q) || payloadStr.includes(q) || f.sender.toLowerCase().includes(q);
     }
     return true;
   });
@@ -64,6 +64,8 @@ export const BusMonitor: React.FC<BusMonitorProps> = ({ frames, onClear }) => {
           <div className="flex items-center gap-1 bg-carbon-950 border border-carbon-700 rounded px-2 py-1">
             <Filter className="w-3 h-3 text-slate-400" />
             <select
+              aria-label="Filter by CAN ID"
+              data-testid="can-filter-select"
               value={filterId}
               onChange={(e) => setFilterId(e.target.value)}
               className="bg-transparent text-slate-200 text-xs focus:outline-none cursor-pointer"
@@ -226,6 +228,7 @@ export const BusMonitor: React.FC<BusMonitorProps> = ({ frames, onClear }) => {
                     {/* Quick Inspect Button */}
                     <td className="py-1.5 px-2 text-center">
                       <button
+                        aria-label="Inspect Frame"
                         onClick={(e) => {
                           e.stopPropagation();
                           setSelectedFrame(frame);

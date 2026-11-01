@@ -1,0 +1,224 @@
+{
+  "base": "https://genhacks.vercel.app",
+  "browser": "firefox",
+  "headed": false,
+  "startedAt": "2026-11-01T18:09:52.246Z",
+  "finishedAt": "2026-11-01T18:10:14.439Z",
+  "summary": {
+    "total": 16,
+    "pass": 16,
+    "fail": 0
+  },
+  "results": [
+    {
+      "viewport": "desktop",
+      "id": "smoke",
+      "title": "Landing page renders cockpit, VBUS connected, zero horizontal overflow",
+      "status": "pass",
+      "ms": 1464,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/smoke-landing-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "core-flow-attack-triage-mitigate",
+      "title": "Inject speed spoofing, assert speedometer spike, verify IDS alert, engage countermeasure",
+      "status": "pass",
+      "ms": 2019,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/core-flow-attack-triage-mitigate-attack-injected-desktop.png",
+        "evidence/stage-3-qa/screens/core-flow-attack-triage-mitigate-attack-mitigated-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "dos-flood-and-firewall",
+      "title": "Launch high-priority 0x000 DoS flood, assert flood alert, toggle frequency firewall",
+      "status": "pass",
+      "ms": 1861,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/dos-flood-and-firewall-dos-firewall-active-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "bus-sniffer-filter-inspect",
+      "title": "Navigate to Bus Sniffer, filter by ID 0x244, inspect decoded velocity frame",
+      "status": "pass",
+      "ms": 1384,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/bus-sniffer-filter-inspect-sniffer-frame-decoded-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "custom-frame-injection",
+      "title": "Inject custom hazard frame (0x208, [00 00 01 00]) and verify cluster hazard lights",
+      "status": "pass",
+      "ms": 1605,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/custom-frame-injection-custom-hazard-frame-injected-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "guided-labs-workflow",
+      "title": "Navigate to Guided Labs, select Lab 1, validate baseline telemetry sniffing",
+      "status": "pass",
+      "ms": 1257,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/guided-labs-workflow-guided-lab-validated-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "drive-controls-responsiveness",
+      "title": "Test manual accelerator slider, apply brake, assert brake telltale",
+      "status": "pass",
+      "ms": 663,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/drive-controls-responsiveness-drive-controls-brake-applied-desktop.png"
+      ]
+    },
+    {
+      "viewport": "desktop",
+      "id": "data-export-candump",
+      "title": "Verify .log (candump) export button operates cleanly without errors",
+      "status": "pass",
+      "ms": 560,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/data-export-candump-candump-exported-desktop.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "smoke",
+      "title": "Landing page renders cockpit, VBUS connected, zero horizontal overflow",
+      "status": "pass",
+      "ms": 417,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/smoke-landing-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "core-flow-attack-triage-mitigate",
+      "title": "Inject speed spoofing, assert speedometer spike, verify IDS alert, engage countermeasure",
+      "status": "pass",
+      "ms": 1818,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/core-flow-attack-triage-mitigate-attack-injected-mobile.png",
+        "evidence/stage-3-qa/screens/core-flow-attack-triage-mitigate-attack-mitigated-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "dos-flood-and-firewall",
+      "title": "Launch high-priority 0x000 DoS flood, assert flood alert, toggle frequency firewall",
+      "status": "pass",
+      "ms": 1405,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/dos-flood-and-firewall-dos-firewall-active-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "bus-sniffer-filter-inspect",
+      "title": "Navigate to Bus Sniffer, filter by ID 0x244, inspect decoded velocity frame",
+      "status": "pass",
+      "ms": 1658,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/bus-sniffer-filter-inspect-sniffer-frame-decoded-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "custom-frame-injection",
+      "title": "Inject custom hazard frame (0x208, [00 00 01 00]) and verify cluster hazard lights",
+      "status": "pass",
+      "ms": 1393,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/custom-frame-injection-custom-hazard-frame-injected-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "guided-labs-workflow",
+      "title": "Navigate to Guided Labs, select Lab 1, validate baseline telemetry sniffing",
+      "status": "pass",
+      "ms": 1271,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/guided-labs-workflow-guided-lab-validated-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "drive-controls-responsiveness",
+      "title": "Test manual accelerator slider, apply brake, assert brake telltale",
+      "status": "pass",
+      "ms": 766,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/drive-controls-responsiveness-drive-controls-brake-applied-mobile.png"
+      ]
+    },
+    {
+      "viewport": "mobile",
+      "id": "data-export-candump",
+      "title": "Verify .log (candump) export button operates cleanly without errors",
+      "status": "pass",
+      "ms": 609,
+      "error": null,
+      "errors": [],
+      "warnings": [],
+      "screenshots": [
+        "evidence/stage-3-qa/screens/data-export-candump-candump-exported-mobile.png"
+      ]
+    }
+  ]
+}
