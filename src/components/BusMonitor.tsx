@@ -12,10 +12,19 @@ export const BusMonitor: React.FC<BusMonitorProps> = ({ frames, onClear }) => {
   const [filterId, setFilterId] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [frozenFrames, setFrozenFrames] = useState<CanFrame[]>([]);
   const [selectedFrame, setSelectedFrame] = useState<CanFrame | null>(null);
 
+  const togglePause = () => {
+    if (!isPaused) {
+      setFrozenFrames([...frames.slice(0, 100)]);
+    }
+    setIsPaused(!isPaused);
+  };
+
   // Filter frames
-  const displayFrames = (isPaused ? frames : frames.slice(0, 100)).filter((f) => {
+  const sourceFrames = isPaused ? frozenFrames : frames.slice(0, 100);
+  const displayFrames = sourceFrames.filter((f) => {
     const idHex = formatCanIdHex(f.id).toLowerCase();
     if (filterId === 'ATTACKS_ONLY' && !f.isAttack) return false;
     if (filterId !== 'ALL' && filterId !== 'ATTACKS_ONLY' && idHex !== filterId.toLowerCase()) return false;
@@ -94,7 +103,7 @@ export const BusMonitor: React.FC<BusMonitorProps> = ({ frames, onClear }) => {
 
           {/* Pause / Resume */}
           <button
-            onClick={() => setIsPaused(!isPaused)}
+            onClick={togglePause}
             title={isPaused ? 'Resume live autoscroll' : 'Freeze display buffer'}
             className={`p-1 rounded border transition-all ${
               isPaused

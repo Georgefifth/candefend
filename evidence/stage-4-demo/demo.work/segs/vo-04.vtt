@@ -1,0 +1,8 @@
+1
+00:00:00,050 --> 00:00:06,105
+Next, simulate a high-priority '0x000 DoS flood'.
+
+2
+00:00:06,105 --> 00:00:13,329
+Engaging the 'Frequency Firewall' rate-limits rogue bursts above '180 Hz', preventing bus starvation.
+

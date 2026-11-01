@@ -1,0 +1,4 @@
+1
+00:00:00,050 --> 00:00:09,375
+Switch to the 'Bus Sniffer' to freeze the buffer and inspect raw 'hex payload bytes', decoded velocities, and export standard 'candump' traces.
+

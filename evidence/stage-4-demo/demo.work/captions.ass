@@ -1,0 +1,29 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Ubuntu Sans,42,&H00FFFFFF,&H00080C14,&HA8080C14,1,0,0,0,100,100,0.4,0,1,3.2,1.5,2,80,80,52,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.05,0:00:05.58,Cap,,0,0,0,,{\fad(105,85)}Connected vehicles expose unencrypted {\c&H00D4EA5E&}'CAN bus networks'{\c&H00FFFFFF&} vulnerable to spoofing.
+Dialogue: 0,0:00:05.50,0:00:10.63,Cap,,0,0,0,,{\fad(105,85)}We built {\c&H00D4EA5E&}'CANDefend'{\c&H00FFFFFF&}—the zero-install cyber-physical security studio.
+Dialogue: 0,0:00:11.46,0:00:19.32,Cap,,0,0,0,,{\fad(105,85)}On landing, a digital instrument cluster streams real {\c&H00D4EA5E&}'SAE J1939 telemetry'{\c&H00FFFFFF&} at {\c&H00D4EA5E&}'{\c&H00D4EA5E&}50{\c&H00FFFFFF&} Hz'{\c&H00FFFFFF&}.
+Dialogue: 0,0:00:19.24,0:00:23.82,Cap,,0,0,0,,{\fad(105,85)}Every needle movement is strictly driven by broadcast CAN packets.
+Dialogue: 0,0:00:25.33,0:00:31.79,Cap,,0,0,0,,{\fad(105,85)}Launch a {\c&H00D4EA5E&}'Speed Spoofing attack'{\c&H00FFFFFF&}: malicious frames on ID {\c&H00D4EA5E&}'{\c&H00D4EA5E&}0x{\c&H00FFFFFF&}244'{\c&H00FFFFFF&} instantly pin the
+Dialogue: 0,0:00:31.79,0:00:36.51,Cap,,0,0,0,,{\fad(105,85)}speedometer to {\c&H00D4EA5E&}'{\c&H00D4EA5E&}140{\c&H00FFFFFF&} mph'{\c&H00FFFFFF&}, triggering the check engine light.
+Dialogue: 0,0:00:38.35,0:00:44.83,Cap,,0,0,0,,{\fad(105,85)}The {\c&H00D4EA5E&}'IDS Engine'{\c&H00FFFFFF&} flags a {\c&H00D4EA5E&}'Kinematic Plausibility Violation'{\c&H00FFFFFF&} in {\c&H00D4EA5E&}'{\c&H00D4EA5E&}0.1ms{\c&H00FFFFFF&}'{\c&H00FFFFFF&}.
+Dialogue: 0,0:00:44.75,0:00:51.79,Cap,,0,0,0,,{\fad(105,85)}Our triage agent diagnoses {\c&H00D4EA5E&}'MITRE T0831'{\c&H00FFFFFF&} and quarantines the attack with one click.
+Dialogue: 0,0:00:53.68,0:00:59.81,Cap,,0,0,0,,{\fad(105,85)}Next, simulate a high-priority {\c&H00D4EA5E&}'{\c&H00D4EA5E&}0x{\c&H00FFFFFF&}000 DoS flood'{\c&H00FFFFFF&}.
+Dialogue: 0,0:00:59.73,0:01:06.23,Cap,,0,0,0,,{\fad(105,85)}Engaging the {\c&H00D4EA5E&}'Frequency Firewall'{\c&H00FFFFFF&} rate-limits rogue bursts above {\c&H00D4EA5E&}'{\c&H00D4EA5E&}180{\c&H00FFFFFF&} Hz'{\c&H00FFFFFF&}, preventing bus
+Dialogue: 0,0:01:06.23,0:01:07.04,Cap,,0,0,0,,{\fad(105,85)}starvation.
+Dialogue: 0,0:01:08.91,0:01:14.54,Cap,,0,0,0,,{\fad(105,85)}Switch to the {\c&H00D4EA5E&}'Bus Sniffer'{\c&H00FFFFFF&} to freeze the buffer and inspect raw {\c&H00D4EA5E&}'hex payload bytes'{\c&H00FFFFFF&},
+Dialogue: 0,0:01:14.54,0:01:18.31,Cap,,0,0,0,,{\fad(105,85)}decoded velocities, and export standard {\c&H00D4EA5E&}'candump'{\c&H00FFFFFF&} traces.
+Dialogue: 0,0:01:20.15,0:01:27.64,Cap,,0,0,0,,{\fad(105,85)}Tested on real {\c&H00D4EA5E&}'Hyundai Sonata OBD-II traces'{\c&H00FFFFFF&}, CANDefend achieves {\c&H00D4EA5E&}'{\c&H00D4EA5E&}100%{\c&H00FFFFFF&} recall'{\c&H00FFFFFF&} with zero
+Dialogue: 0,0:01:27.64,0:01:28.73,Cap,,0,0,0,,{\fad(105,85)}false alarms.
+Dialogue: 0,0:01:28.66,0:01:31.58,Cap,,0,0,0,,{\fad(105,85)}Experience {\c&H00D4EA5E&}'CANDefend Studio'{\c&H00FFFFFF&} live.

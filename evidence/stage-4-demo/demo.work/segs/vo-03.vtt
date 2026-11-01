@@ -1,0 +1,8 @@
+1
+00:00:00,050 --> 00:00:06,454
+The 'IDS Engine' flags a 'Kinematic Plausibility Violation' in '0.1ms'.
+
+2
+00:00:06,454 --> 00:00:13,413
+Our triage agent diagnoses 'MITRE T0831' and quarantines the attack with one click.
+

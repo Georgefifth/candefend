@@ -1,0 +1,8 @@
+1
+00:00:00,050 --> 00:00:07,836
+On landing, a digital instrument cluster streams real 'SAE J1939 telemetry' at '50 Hz'.
+
+2
+00:00:07,836 --> 00:00:12,331
+Every needle movement is strictly driven by broadcast CAN packets.
+

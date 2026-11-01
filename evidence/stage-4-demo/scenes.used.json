@@ -1,0 +1,264 @@
+[
+  {
+    "name": "arch-intro",
+    "card": {
+      "html": "demo/slides.html",
+      "slide": "#slide-arch"
+    },
+    "duration": 8,
+    "vo": "Connected vehicles expose unencrypted 'CAN bus networks' vulnerable to spoofing. We built 'CANDefend'—the zero-install cyber-physical security studio.",
+    "pause": 0.3
+  },
+  {
+    "name": "live-cockpit",
+    "session": "app",
+    "url": "http://localhost:4199",
+    "actions": [
+      {
+        "type": "waitFor",
+        "sel": "text=CANDefend",
+        "timeout": 12000,
+        "__focus": null
+      },
+      {
+        "type": "waitFor",
+        "sel": "text=Cyber-Physical Instrument Cluster",
+        "__focus": null
+      },
+      {
+        "type": "spotlight",
+        "sel": "text=45",
+        "label": "★ 50 Hz VBUS TWIN",
+        "ms": 2200,
+        "__focus": [
+          546.6,
+          319
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 1200,
+        "__focus": null
+      }
+    ],
+    "vo": "On landing, a digital instrument cluster streams real 'SAE J1939 telemetry' at '50 Hz'. Every needle movement is strictly driven by broadcast CAN packets.",
+    "pause": 0.2
+  },
+  {
+    "name": "live-speed-spoof",
+    "session": "app",
+    "actions": [
+      {
+        "type": "click",
+        "sel": "button:has-text('Inject Speed Surge')",
+        "__focus": [
+          273.7,
+          861.5
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 1000,
+        "__focus": null
+      },
+      {
+        "type": "spotlight",
+        "sel": "text=CHECK",
+        "label": "! VELOCITY SURGE",
+        "ms": 2000,
+        "__focus": [
+          835.9,
+          174.5
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 1200,
+        "__focus": null
+      }
+    ],
+    "vo": "Launch a 'Speed Spoofing attack': malicious frames on ID '0x244' instantly pin the speedometer to '140 mph', triggering the check engine light.",
+    "pause": 0.2
+  },
+  {
+    "name": "live-ids-triage",
+    "session": "app",
+    "actions": [
+      {
+        "type": "click",
+        "sel": "button:has-text('IDS Agent')",
+        "__focus": [
+          1209.7,
+          33.5
+        ]
+      },
+      {
+        "type": "waitFor",
+        "sel": "text=AI Security Triage",
+        "__focus": null
+      },
+      {
+        "type": "click",
+        "sel": "text=Kinematic Violation: Impossible Speed Jump",
+        "__focus": [
+          385.7,
+          499
+        ]
+      },
+      {
+        "type": "spotlight",
+        "sel": "text=Kinematic Plausibility",
+        "label": "★ MITRE ATT&CK T0831",
+        "ms": 2200,
+        "__focus": [
+          1195.6,
+          323.2
+        ]
+      },
+      {
+        "type": "click",
+        "sel": "button:has-text('Engage Kinematic Limiter')",
+        "__focus": [
+          1677.3,
+          613.6
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 1200,
+        "__focus": null
+      }
+    ],
+    "vo": "The 'IDS Engine' flags a 'Kinematic Plausibility Violation' in '0.1ms'. Our triage agent diagnoses 'MITRE T0831' and quarantines the attack with one click.",
+    "pause": 0.2
+  },
+  {
+    "name": "live-dos-firewall",
+    "session": "app",
+    "actions": [
+      {
+        "type": "click",
+        "sel": "button:has-text('Cockpit')",
+        "__focus": [
+          847.7,
+          36.6
+        ]
+      },
+      {
+        "type": "waitFor",
+        "sel": "button:has-text('Launch 3s DoS Flood')",
+        "__focus": null
+      },
+      {
+        "type": "click",
+        "sel": "button:has-text('Launch 3s DoS Flood')",
+        "__focus": [
+          800.6,
+          860.5
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 800,
+        "__focus": null
+      },
+      {
+        "type": "click",
+        "sel": "text=Frequency Firewall",
+        "__focus": [
+          1258.1,
+          756.3
+        ]
+      },
+      {
+        "type": "spotlight",
+        "sel": "text=FIREWALL ACTIVE",
+        "label": "★ 180 Hz RATE LIMIT",
+        "ms": 2000,
+        "__focus": [
+          1334.7,
+          871.2
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 1200,
+        "__focus": null
+      }
+    ],
+    "vo": "Next, simulate a high-priority '0x000 DoS flood'. Engaging the 'Frequency Firewall' rate-limits rogue bursts above '180 Hz', preventing bus starvation.",
+    "pause": 0.2
+  },
+  {
+    "name": "live-bus-sniffer",
+    "session": "app",
+    "actions": [
+      {
+        "type": "click",
+        "sel": "button:has-text('Bus Sniffer')",
+        "__focus": [
+          1085.2,
+          37.1
+        ]
+      },
+      {
+        "type": "waitFor",
+        "sel": "text=CAN Bus Frame Sniffer",
+        "__focus": null
+      },
+      {
+        "type": "click",
+        "sel": "button[title*='Freeze display buffer']",
+        "__focus": [
+          1748.1,
+          119.7
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 600,
+        "__focus": null
+      },
+      {
+        "type": "click",
+        "sel": "table tbody tr:first-child",
+        "__focus": [
+          970.8,
+          207.9
+        ]
+      },
+      {
+        "type": "waitFor",
+        "sel": "text=FRAME DECODER",
+        "__focus": null
+      },
+      {
+        "type": "spotlight",
+        "sel": "text=FRAME DECODER",
+        "label": "★ BYTE INSPECTION",
+        "ms": 2000,
+        "__focus": [
+          199.6,
+          569.1
+        ]
+      },
+      {
+        "type": "wait",
+        "ms": 1200,
+        "__focus": null
+      }
+    ],
+    "vo": "Switch to the 'Bus Sniffer' to freeze the buffer and inspect raw 'hex payload bytes', decoded velocities, and export standard 'candump' traces.",
+    "pause": 0.2
+  },
+  {
+    "name": "metrics-close",
+    "card": {
+      "html": "demo/slides.html",
+      "slide": "#slide-metrics"
+    },
+    "duration": 8,
+    "vo": "Tested on real 'Hyundai Sonata OBD-II traces', CANDefend achieves '100% recall' with zero false alarms. Experience 'CANDefend Studio' live.",
+    "pause": 0.5
+  }
+]

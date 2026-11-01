@@ -1,0 +1,244 @@
+[
+  {
+    "idx": 0,
+    "name": "arch-intro",
+    "isCard": true,
+    "url": null,
+    "file": "/home/yap/Hack/genhacks/evidence/stage-4-demo/raw/scene-00.webm",
+    "wallMs": 8157,
+    "trimStart": 0.15,
+    "focus": [],
+    "sfx": []
+  },
+  {
+    "idx": 1,
+    "name": "live-cockpit",
+    "isCard": false,
+    "session": "app",
+    "url": "http://localhost:4199",
+    "focus": [
+      {
+        "t": 2.98,
+        "x": 547,
+        "y": 319
+      }
+    ],
+    "sfx": [
+      {
+        "type": "whoosh",
+        "t": 0.7
+      }
+    ],
+    "file": "/home/yap/Hack/genhacks/evidence/stage-4-demo/raw/session-app.webm",
+    "range": [
+      0.03,
+      4.71
+    ]
+  },
+  {
+    "idx": 2,
+    "name": "live-speed-spoof",
+    "isCard": false,
+    "session": "app",
+    "url": "http://localhost:4199",
+    "focus": [
+      {
+        "t": 0.66,
+        "x": 274,
+        "y": 862
+      },
+      {
+        "t": 4.37,
+        "x": 836,
+        "y": 175
+      }
+    ],
+    "sfx": [
+      {
+        "type": "click",
+        "t": 0.6
+      },
+      {
+        "type": "whoosh",
+        "t": 2.3
+      }
+    ],
+    "file": "/home/yap/Hack/genhacks/evidence/stage-4-demo/raw/session-app.webm",
+    "range": [
+      4.71,
+      11.14
+    ]
+  },
+  {
+    "idx": 3,
+    "name": "live-ids-triage",
+    "isCard": false,
+    "session": "app",
+    "url": "http://localhost:4199",
+    "focus": [
+      {
+        "t": 0.64,
+        "x": 1210,
+        "y": 34
+      },
+      {
+        "t": 1.33,
+        "x": 386,
+        "y": 499
+      },
+      {
+        "t": 4.24,
+        "x": 1196,
+        "y": 323
+      },
+      {
+        "t": 4.87,
+        "x": 1677,
+        "y": 614
+      }
+    ],
+    "sfx": [
+      {
+        "type": "click",
+        "t": 0.59
+      },
+      {
+        "type": "click",
+        "t": 1.28
+      },
+      {
+        "type": "whoosh",
+        "t": 1.95
+      },
+      {
+        "type": "click",
+        "t": 4.83
+      }
+    ],
+    "file": "/home/yap/Hack/genhacks/evidence/stage-4-demo/raw/session-app.webm",
+    "range": [
+      11.14,
+      18.08
+    ]
+  },
+  {
+    "idx": 4,
+    "name": "live-dos-firewall",
+    "isCard": false,
+    "session": "app",
+    "url": "http://localhost:4199",
+    "focus": [
+      {
+        "t": 0.68,
+        "x": 848,
+        "y": 37
+      },
+      {
+        "t": 1.35,
+        "x": 801,
+        "y": 861
+      },
+      {
+        "t": 2.85,
+        "x": 1258,
+        "y": 756
+      },
+      {
+        "t": 5.48,
+        "x": 1335,
+        "y": 871
+      }
+    ],
+    "sfx": [
+      {
+        "type": "click",
+        "t": 0.64
+      },
+      {
+        "type": "click",
+        "t": 1.31
+      },
+      {
+        "type": "click",
+        "t": 2.79
+      },
+      {
+        "type": "whoosh",
+        "t": 3.4
+      }
+    ],
+    "file": "/home/yap/Hack/genhacks/evidence/stage-4-demo/raw/session-app.webm",
+    "range": [
+      18.08,
+      25.62
+    ]
+  },
+  {
+    "idx": 5,
+    "name": "live-bus-sniffer",
+    "isCard": false,
+    "session": "app",
+    "url": "http://localhost:4199",
+    "focus": [
+      {
+        "t": 0.74,
+        "x": 1085,
+        "y": 37
+      },
+      {
+        "t": 1.46,
+        "x": 1748,
+        "y": 120
+      },
+      {
+        "t": 2.76,
+        "x": 971,
+        "y": 208
+      },
+      {
+        "t": 5.48,
+        "x": 200,
+        "y": 569
+      }
+    ],
+    "sfx": [
+      {
+        "type": "click",
+        "t": 0.63
+      },
+      {
+        "type": "click",
+        "t": 1.4
+      },
+      {
+        "type": "click",
+        "t": 2.71
+      },
+      {
+        "type": "whoosh",
+        "t": 3.4
+      }
+    ],
+    "file": "/home/yap/Hack/genhacks/evidence/stage-4-demo/raw/session-app.webm",
+    "range": [
+      25.62,
+      33.16
+    ]
+  },
+  {
+    "idx": 6,
+    "name": "metrics-close",
+    "isCard": true,
+    "url": null,
+    "file": "/home/yap/Hack/genhacks/evidence/stage-4-demo/raw/scene-06.webm",
+    "wallMs": 8026,
+    "trimStart": 0,
+    "focus": [],
+    "sfx": [
+      {
+        "type": "whoosh",
+        "t": 0.07
+      }
+    ]
+  }
+]
